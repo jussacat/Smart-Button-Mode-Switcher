@@ -1,0 +1,18 @@
+Command: ninja all
+[1/9] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\GPIO_LED\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Espressif/frameworks/GPIO_LED/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6680 bytes. 0x980 bytes (8%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building C object esp-idf/components/CMakeFiles/__idf_components.dir/button_led.c.obj
+[5/9] Linking C static library esp-idf\components\libcomponents.a
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+[7/9] Linking CXX executable GPIO_LED.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.10.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Espressif/frameworks/GPIO_LED/build/GPIO_LED.bin
+[9/9] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\GPIO_LED\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.5.1/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Espressif/frameworks/GPIO_LED/build/partition_table/partition-table.bin C:/Espressif/frameworks/GPIO_LED/build/GPIO_LED.bin"
+GPIO_LED.bin binary size 0x2e650 bytes. Smallest app partition is 0x100000 bytes. 0xd19b0 bytes (82%) free.

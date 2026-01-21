@@ -1,0 +1,2 @@
+source C:/Espressif/frameworks/GPIO_LED/build/bootloader/gdbinit/symbols
+source C:/Espressif/frameworks/GPIO_LED/build/bootloader/gdbinit/connect

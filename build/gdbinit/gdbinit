@@ -1,0 +1,2 @@
+source C:/Espressif/frameworks/GPIO_LED/build/gdbinit/symbols
+source C:/Espressif/frameworks/GPIO_LED/build/gdbinit/connect
