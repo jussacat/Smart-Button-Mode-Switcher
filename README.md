@@ -1,4 +1,4 @@
-# 🔘 Smart Button Mode Switcher (ESP-IDF)
+# Smart Button Mode Switcher (ESP-IDF)
 ## Overview
 Đây là một Project tối giản minh họa hệ thống chuyển chế độ nháy LED bằng nút bấm và một LED được nháy độc lập để kiểm tra hệ thống hoạt động.
 
