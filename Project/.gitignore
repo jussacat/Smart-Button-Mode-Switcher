@@ -1,0 +1,31 @@
+# ESP-IDF build output
+build/
+
+# VS Code
+.vscode/
+
+# ESP-IDF generated files
+sdkconfig
+sdkconfig.old
+
+# Compilation database
+compile_commands.json
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Ninja
+.ninja_deps
+.ninja_log
+rules.ninja
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
