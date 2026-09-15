@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-C:/Espressif/frameworks/GPIO_LED/build/CMakeFiles/bootloader
-C:/Espressif/frameworks/GPIO_LED/build/CMakeFiles/bootloader.rule
-C:/Espressif/frameworks/GPIO_LED/build/CMakeFiles/bootloader-complete.rule
-C:/Espressif/frameworks/GPIO_LED/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-C:/Espressif/frameworks/GPIO_LED/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-C:/Espressif/frameworks/GPIO_LED/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-C:/Espressif/frameworks/GPIO_LED/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-C:/Espressif/frameworks/GPIO_LED/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-C:/Espressif/frameworks/GPIO_LED/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-C:/Espressif/frameworks/GPIO_LED/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/CMakeFiles/bootloader
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/CMakeFiles/bootloader.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/CMakeFiles/bootloader-complete.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

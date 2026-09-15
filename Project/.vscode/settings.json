@@ -1,3 +1,5 @@
 {
-    "idf.portWin": "COM5"
+    "idf.portWin": "COM5",
+    "idf.currentSetup": "/home/uzine/espidf/esp-idf",
+    "idf.port": "/dev/ttyUSB0"
 }

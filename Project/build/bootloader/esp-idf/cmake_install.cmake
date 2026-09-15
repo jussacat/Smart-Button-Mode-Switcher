@@ -1,8 +1,8 @@
-# Install script for directory: C:/Espressif/frameworks/esp-idf-v5.5.1
+# Install script for directory: /home/uzine/espidf/esp-idf
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/bootloader")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -32,113 +32,203 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "TRUE")
 endif()
 
-# Set path to fallback-tool for dependency-resolution.
+# Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin/xtensa-esp32-elf-objdump.exe")
+  set(CMAKE_OBJDUMP "/home/uzine/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/xtensa/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/xtensa/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/newlib/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_libc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/soc/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/soc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/micro-ecc/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/hal/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/hal/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_gpio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/spi_flash/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_usb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esp_bootloader_format/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_pmu/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esp_app_format/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_regi2c/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/bootloader_support/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_dma/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/efuse/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_gpspi/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esp_security/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_clock/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esp_system/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_mspi/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esp_hw_support/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_blockdev/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esp_common/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/spi_flash/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esp_rom/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_bootloader_format/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/log/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_app_format/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/esptool_py/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/partition_table/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/partition_table/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esptool_py/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/bootloader/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/micro-ecc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/freertos/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_timg/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/GPIO_LED/build/bootloader/esp-idf/main/cmake_install.cmake")
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_wdt/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_uart/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_i2s/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_ana_conv/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_rtc_timer/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_security/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_security/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/bootloader_support/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/efuse/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hal_systimer/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_system/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_hw_support/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_common/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_rom/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/log/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/bootloader/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/esp_stdio/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/freertos/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/esp-idf/main/cmake_install.cmake")
 endif()
 

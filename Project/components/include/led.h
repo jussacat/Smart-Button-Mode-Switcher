@@ -1,28 +1,16 @@
 #ifndef LED_H
 #define LED_H
 
-#include "freertos/FreeRTOS.h"
-#include "freertos/timers.h"
+#include <stdint.h>
+#include "driver/gpio.h"
 
-#define RED_LED_PIN      GPIO_NUM_19
-#define GREEN_LED_PIN    GPIO_NUM_23
+#define RED_LED_PIN      GPIO_NUM_19 //Status
+#define GREEN_LED_PIN    GPIO_NUM_21 //Heartbeat
 
-typedef enum {
-    MODE_FAST = 0, //200ms
-    MODE_SLOW, //1000ms
-    MODE_OFF //off
-} LedMode_t;
-
-typedef struct {
-    LedMode_t mode;
-    uint32_t ms;
-} message_t;
-
-extern QueueHandle_t g_display_queue;
 
 void LED_Init(void);
-
-void Change_Mode(void *pvParameters);
+void LED_SetRate(uint32_t period_ms);
+void LED_SetStatusOff(void);
 
 #endif /*LED_H*/
 

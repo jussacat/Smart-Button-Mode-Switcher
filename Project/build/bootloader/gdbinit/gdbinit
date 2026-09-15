@@ -1,2 +1,2 @@
-source C:/Espressif/frameworks/GPIO_LED/build/bootloader/gdbinit/symbols
-source C:/Espressif/frameworks/GPIO_LED/build/bootloader/gdbinit/connect
+source /home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/gdbinit/symbols
+source /home/uzine/espidf/Smart-Button-Mode-Switcher/Project/build/bootloader/gdbinit/connect
