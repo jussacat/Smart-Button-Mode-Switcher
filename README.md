@@ -1,53 +1,185 @@
-# Smart Button Mode Switcher (ESP-IDF)
-## Overview
-Đây là một Project tối giản minh họa hệ thống chuyển chế độ nháy LED bằng nút bấm và một LED được nháy độc lập để kiểm tra hệ thống hoạt động.
+# ESP32 - IoT Smart Button Controller
 
-Dự án được xây dựng xoay quanh 4 kỹ thuật nền tảng:
+An ESP32-based embedded IoT controller designed to demonstrate robust firmware architecture using **FreeRTOS**, **event-driven programming**, **interrupt handling**, **software timers**, **Task Watchdog Timer (TWDT)**, and a lightweight **Wi-Fi Web Server**.
 
-1.  **GPIO**: Cấu hình Input (Pull-up) cho nút nhấn và Output cho LED.
-2.  **Interrupt (Ngắt)**: Bắt sự kiện nhấn nút tức thời mà không cần kiểm tra liên tục (polling), giúp tiết kiệm tài nguyên CPU.
-3.  **Debounce (Chống dội phím)**: Thuật toán lọc nhiễu tín hiệu cơ học của nút nhấn dựa trên so sánh thời gian thực.
-4.  **Pointer (Con trỏ)**: Sử dụng con trỏ để thao tác trực tiếp và an toàn lên biến trạng thái (`struct`) giữa các tầng xử lý (ISR -> Main Loop).
+The project goes beyond basic GPIO control by applying structured embedded software design patterns commonly used in real-time firmware systems.
 
-## Tính năng (Features)
-* **Chuyển chế độ bằng một nút nhấn**:
-    * **Mode FAST**: LED nháy nhanh (500ms).
-    * **Mode SLOW**: LED nháy chậm (2000ms).
-    * **Mode OFF**: Dừng nháy LED (LED đỏ sẽ sáng, LED xanh sẽ tắt).
-* **LED xanh độc lập**: Một đèn LED phụ nháy nền để báo hiệu hệ thống đang chạy, hoàn toàn không bị ảnh hưởng bởi đèn chính.
-* **Zero-Delay**: Không sử dụng `vTaskDelay` hay `delay` để làm trễ logic, đảm bảo nút nhấn luôn phản hồi tức thì.
+![Hardware Setup](Demo/Breadboard.png)
+---
 
-## Hardware
-* Kit phát triển: ESP32-VROOM-32D.
-* 1x Button (Nối GPIO 19).
-* 1x LED đỏ (Nối GPIO 21).
-* 1x LED xanh (Nối GPIO 18).
+## Project Overview
 
-### Sơ đồ đấu nối (Pinout)
-| Component | GPIO Pin (ESP32) | Mode | Note |
-|-----------|------------------|------|------|
-| **Button**| GPIO 19 | Input | Pull-up (Nối đất khi nhấn) |
-| **Red LED**| GPIO 21 | Output | Active High/Low tùy mạch |
-| **Green LED**| GPIO 18 | Output | Nháy nền 200ms |
+The system provides a smart button and LED controller running on the ESP32.
 
-## Logic Flow
+A physical push button and a Web interface can both generate control events. These events are processed through a centralized FreeRTOS queue and handled by a dedicated FSM task.
 
-```mermaid
-graph TD;
-    Start([Khởi động]) --> Init[Cấu hình GPIO & Ngắt];
-    Init --> Loop{Vòng lặp vô tận};
-    
-    subgraph "Interrupt Service Routine (ISR)"
-        BtnClick[Nhấn nút] --> Debounce{Check > 200ms?};
-        Debounce -- Yes --> SetFlag[Bật cờ g_button_pressed];
-        Debounce -- No --> Ignore[Bỏ qua];
-    end
+The firmware is designed around:
 
-    subgraph "Main Loop (Non-blocking)"
-        Loop -- Check Flag --> FlagOn{Cờ == True?};
-        FlagOn -- Yes --> PtrChange[Dùng Pointer đổi State] --> ResetFlag[Hạ cờ];
-        FlagOn -- No --> CheckTimer;
-        
-        CheckTimer -- Đủ thời gian --> ToggleLED[Đảo trạng thái LED];
-        CheckTimer -- Chưa đủ --> TaskDelay[Nhường CPU 10ms];
-    end
+- Event-driven architecture
+- Deferred interrupt handling
+- Producer-Consumer architecture
+- Finite State Machine (FSM)
+- FreeRTOS software timers
+- Task Watchdog Timer (TWDT)
+- Fault recovery
+- Wi-Fi SoftAP and HTTP server
+- Runtime telemetry and diagnostics
+
+### Technologies
+
+| Category | Technology |
+|---|---|
+| MCU | ESP32 |
+| Framework | ESP-IDF |
+| RTOS | FreeRTOS |
+| Language | Embedded C |
+| Networking | Wi-Fi SoftAP |
+| Web Server | ESP-IDF `esp_http_server` |
+| Debugging | UART Telemetry |
+| Reliability | Task Watchdog Timer |
+
+---
+
+# System Architecture
+
+The firmware follows an event-driven architecture where hardware interrupts and network requests generate events instead of directly modifying the system state.
+
+```text
+                    ┌─────────────────────┐
+                    │    Physical Button  │
+                    └──────────┬──────────┘
+                               │
+                         GPIO Interrupt
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │    Button ISR       │
+                    │  Non-blocking       │
+                    │  Debounce           │
+                    └──────────┬──────────┘
+                               │
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │   Event Queue       │◄──────────────┐
+                    └──────────┬──────────┘               │
+                               │                          │
+                               ▼                          │
+                    ┌─────────────────────┐               │
+                    │    FSM Task         │               │
+                    │    Consumer         │               │
+                    └──────────┬──────────┘               │
+                               │                          │
+                         State Transition                 │
+                               │                          │
+                 ┌─────────────┴─────────────┐            │
+                 ▼                           ▼            │
+        ┌─────────────────┐         ┌─────────────────┐   │
+        │ Software Timer  │         │   Status LED    │   │
+        └─────────────────┘         └─────────────────┘   │
+                                                          │
+                    ┌─────────────────────┐               │
+                    │    Web Server       │───────────────┘
+                    │     HTTP API        │
+                    └─────────────────────┘
+```
+
+---
+
+
+# Hardware Configuration
+
+| Peripheral | GPIO | Configuration | Function |
+|---|---:|---|---|
+| Push Button | GPIO 22 | Input + Pull-Up | User input |
+| Status LED | GPIO 19 | Output | FSM-controlled LED |
+| Heartbeat LED | GPIO 21 | Output | System heartbeat |
+
+---
+
+# Core Features
+
+### GPIO Interrupt & Debounce
+- Button events are detected using GPIO interrupts.
+- Non-blocking debounce is implemented with `esp_timer_get_time()`.
+- ISR sends events to a FreeRTOS queue using `xQueueSendFromISR()`.
+
+### FreeRTOS & Event-Driven Architecture
+- Button and Web Server act as event producers.
+- A centralized queue transfers events to the FSM task.
+- The FSM task is the single consumer responsible for state transitions.
+
+### Finite State Machine
+```text
+FAST → SLOW → OFF → FAST
+```
+The LED behavior is controlled according to the current FSM state.
+
+---
+
+### Software Timer
+- FreeRTOS Software Timer controls LED blinking.
+- Timer periods are changed dynamically using `xTimerChangePeriod()`.
+- No dedicated delay-based task is required for LED timing.
+
+### Watchdog & Fault Recovery
+- Task Watchdog Timer (TWDT) monitors the FSM task.
+- FSM state is stored using `RTC_DATA_ATTR`.
+- `esp_reset_reason()` detects reset causes and restores the previous system state.
+
+### Wi-Fi & Web Server
+- ESP32 operates as a Wi-Fi SoftAP.
+- **SSID:** `ESP32_ButtonLed`
+- **IP:** `192.168.4.1`
+- HTTP requests are converted into events and processed through the same FSM as physical button events.
+
+![Web Interface](Demo/Webserver.png)
+
+### Runtime Telemetry
+UART logs provide runtime diagnostics, including:
+
+- FSM state transitions
+- Free heap
+- Stack high-water mark
+- Button events
+- System status
+
+---
+
+# Build & Flash
+
+```bash
+source ~/espidf/esp-idf/export.sh
+cd ~/espidf/Smart-Button-Mode-Switcher/Project
+
+idf.py build
+idf.py -p /dev/ttyUSB0 flash monitor
+```
+
+---
+
+# Future Improvements
+
+- **NVS Persistent Configuration**  
+  Store user settings and controller state in non-volatile storage.
+
+- **OTA Firmware Updates**  
+  Enable wireless firmware updates without requiring a USB connection.
+
+- **WebSocket Communication**  
+  Provide real-time device status updates through the web interface.
+
+- **Wi-Fi Station Mode**  
+  Allow the ESP32 to connect to an existing Wi-Fi network instead of operating only as a SoftAP.
+
+- **Hardware Abstraction Layer (HAL)**  
+  Further separate hardware-dependent code from application logic.
+
+- **Unit Testing**  
+  Add automated tests for FSM transitions, event handling, and control logic.
+
+- **Event Logging**  
+  Implement structured event logging for debugging and fault analysis.
+
+- **Configuration via Web Interface**  
+  Allow users to modify LED modes, timer periods, and system parameters through the web server.
